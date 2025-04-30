@@ -23,6 +23,8 @@ N = int(input())
 flag = False
 for i in range(1, min(87654, N) + 1):
     target = N - i
+    if target <= 0:
+        continue
     if check(i, target):
         flag = True
         print(i, '+', target)
