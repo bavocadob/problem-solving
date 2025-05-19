@@ -61,7 +61,7 @@ def solve(base, cycle, start, length):
     if remain > 0 and clen > 0:
         s = (start - len(base)) % clen if start >= len(base) else 0
         times = (remain // clen) + 1
-        res += (cycle * times)[s:s + remain]
+        res += (cycle * (times + 1))[s:s + remain]
 
     res += '.' * (length - len(res))
     return res
