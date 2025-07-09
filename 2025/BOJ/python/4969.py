@@ -18,6 +18,8 @@ def main():
             if j % 7 == 1 or j % 7 == 6:
                 is_ms_prime[j] = False
 
+    ms_primes = [i for i, is_prime in enumerate(is_ms_prime) if is_prime]
+
     while True:
         n = int(input())
 
@@ -26,10 +28,12 @@ def main():
 
         rst = []
 
-        for d in range(2, n + 1):
-            if n % d == 0:
-                if is_ms_prime[d]:
-                    rst.append(str(d))
+        for p in ms_primes:
+            if p > n:
+                break
+
+            if n % p == 0:
+                rst.append(str(p))
 
         print(f'{n}: {" ".join(rst)}')
 
